@@ -13,7 +13,7 @@ export default function Contact() {
     email: '',
     phone: '',
     service: '',
-    message:'
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
