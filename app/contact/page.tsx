@@ -1,9 +1,9 @@
 
 'use client';
 
+import React, { useState } from 'react'; // Added React import
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../../lib/emailjs-config';
 
@@ -18,7 +18,9 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -26,7 +28,7 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('');
